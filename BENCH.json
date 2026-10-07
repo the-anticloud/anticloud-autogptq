@@ -1,0 +1,643 @@
+{
+ "schema": "anticloud.tier-bench/1",
+ "project": "AUTOGPTQ",
+ "source": {
+  "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\CHIP_QUANTIZATION\\AUTOGPTQ\\UPSTREAM_CLONE",
+  "git": {
+   "head": "REMOVED_CONTAMINATED_SHA_PENDING_API_RESOLVE",
+   "url": "https://github.com/the-anticloud/OPENMRS_CORE.git",
+   "branch": "master",
+   "committed_at": "2026-09-29T11:06:59+04:00",
+   "sha_verified_from": "local clone .git file read (no .git dir in clone)"
+  }
+ },
+ "metrics": {
+  "files_total": 163,
+  "source_files_scanned": 117,
+  "lines_of_code": 23588,
+  "languages": {
+   ".py": 102,
+   ".cuh": 25,
+   ".cu": 10,
+   ".md": 8,
+   ".cpp": 6,
+   "(none)": 5,
+   ".h": 3,
+   ".in": 1,
+   ".toml": 1,
+   ".ini": 1,
+   ".json": 1
+  }
+ },
+ "licence": {
+  "spdx": "MIT",
+  "class": "A",
+  "source_file": "LICENSE",
+  "redistribution_allowed": true
+ },
+ "dependencies": {
+  "count": 8,
+  "unique": 8,
+  "by_ecosystem": {
+   "pypi": 8
+  },
+  "list": [
+   {
+    "ecosystem": "pypi",
+    "name": "accelerate",
+    "version": ">=0.26.0",
+    "source_file": "setup.py",
+    "raw": "accelerate>=0.26.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "torch",
+    "version": ">=1.13.0",
+    "source_file": "setup.py",
+    "raw": "torch>=1.13.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "transformers",
+    "version": ">=4.31.0",
+    "source_file": "setup.py",
+    "raw": "transformers>=4.31.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "peft",
+    "version": ">=0.5.0",
+    "source_file": "setup.py",
+    "raw": "peft>=0.5.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "triton",
+    "version": "==2.0.0",
+    "source_file": "setup.py",
+    "raw": "triton==2.0.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "ruff",
+    "version": "==0.1.5",
+    "source_file": "setup.py",
+    "raw": "ruff==0.1.5"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "-march",
+    "version": "=native",
+    "source_file": "setup.py",
+    "raw": "-march=native"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "-std",
+    "version": "=c++17",
+    "source_file": "setup.py",
+    "raw": "-std=c++17"
+   }
+  ]
+ },
+ "owasp_top10": {
+  "total_findings": 25,
+  "files_with_findings": 22,
+  "severity": {
+   "high": 8,
+   "medium": 1,
+   "low": 16
+  },
+  "categories": {
+   "A01-BrokenAccessControl": {
+    "count": 0,
+    "findings": []
+   },
+   "A02-CryptographicFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A03-Injection": {
+    "count": 8,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "setup.py",
+      "line": 154,
+      "cwe": "CWE-78",
+      "snippet": "cores_info = subprocess.run(\"cat /proc/cpuinfo | grep cores | head -1\", shell=True, check=True, text=True, stdout=subprocess.PIPE).stdout.split(\" \")"
+     },
+     {
+      "severity": "high",
+      "file": "tests/bench_autoawq_autogptq.py",
+      "line": 39,
+      "cwe": "CWE-95",
+      "snippet": "linear_gptq = linear_gptq.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "tests/test_q4.py",
+      "line": 1091,
+      "cwe": "CWE-95",
+      "snippet": "linear = linear.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/peft/peft_adalora_clm_instruction_tuning.py",
+      "line": 156,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/peft/peft_adaption_prompt_clm_instruction_tuning.py",
+      "line": 145,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/peft/peft_lora_clm_instruction_tuning.py",
+      "line": 145,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/evaluation/run_text_summarization_task.py",
+      "line": 12,
+      "cwe": "CWE-78",
+      "snippet": "os.system(\"pip install py7zr\")"
+     },
+     {
+      "severity": "high",
+      "file": "auto_gptq/modeling/_base.py",
+      "line": 686,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     }
+    ]
+   },
+   "A04-InsecureDesign": {
+    "count": 12,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "tests/test_awq_compatibility_generation.py",
+      "line": 21,
+      "cwe": "CWE-",
+      "snippet": "# TODO: test cuda-old fp16."
+     },
+     {
+      "severity": "low",
+      "file": "tests/test_hpu_linear.py",
+      "line": 167,
+      "cwe": "CWE-",
+      "snippet": "#TODO: pack independently"
+     },
+     {
+      "severity": "low",
+      "file": "tests/test_q4.py",
+      "line": 1225,
+      "cwe": "CWE-",
+      "snippet": "# TODO"
+     },
+     {
+      "severity": "low",
+      "file": "examples/quantization/basic_usage.py",
+      "line": 35,
+      "cwe": "CWE-",
+      "snippet": "# or pass explcit token with: use_auth_token=\"hf_xxxxxxx\""
+     },
+     {
+      "severity": "low",
+      "file": "auto_gptq/utils/accelerate_utils.py",
+      "line": 27,
+      "cwe": "CWE-",
+      "snippet": "# TODO: Remove and use instead accelerate.utils.modeling.load_checkpoint_in_model once https://github.com/huggingface/accelerate/pull/2588 is merged & accelerate 0.29 is released."
+     },
+     {
+      "severity": "low",
+      "file": "auto_gptq/utils/marlin_utils.py",
+      "line": 51,
+      "cwe": "CWE-",
+      "snippet": "# TODO: Avoid loading the model with wrong QuantLinear, and directly use"
+     },
+     {
+      "severity": "low",
+      "file": "auto_gptq/nn_modules/fused_llama_attn.py",
+      "line": 177,
+      "cwe": "CWE-",
+      "snippet": "# TODO: support it. The issue lies maybe in the line:"
+     },
+     {
+      "severity": "low",
+      "file": "auto_gptq/nn_modules/qlinear/qlinear_hpu.py",
+      "line": 103,
+      "cwe": "CWE-",
+      "snippet": "# TODO: Support group indexing and remove the check"
+     },
+     {
+      "severity": "low",
+      "file": "auto_gptq/modeling/auto.py",
+      "line": 141,
+      "cwe": "CWE-",
+      "snippet": "# TODO: do we need this filtering of kwargs? @PanQiWei is there a reason we can't just pass all kwargs?"
+     },
+     {
+      "severity": "low",
+      "file": "auto_gptq/modeling/_base.py",
+      "line": 263,
+      "cwe": "CWE-",
+      "snippet": "# TODO: make this optional, backporting https://github.com/huggingface/optimum/blob/main/optimum/gptq/quantizer.py"
+     },
+     {
+      "severity": "low",
+      "file": "auto_gptq/modeling/_utils.py",
+      "line": 301,
+      "cwe": "CWE-",
+      "snippet": "# TODO remove once pack() thread regression is fixed"
+     },
+     {
+      "severity": "low",
+      "file": "autogptq_extension/exllama/cuda_func/q4_matrix.cu",
+      "line": 109,
+      "cwe": "CWE-",
+      "snippet": "cudaMalloc(&cuda_x_map, height * sizeof(uint32_t));  // TODO: Should probably be allocated in PyTorch"
+     }
+    ]
+   },
+   "A05-SecurityMisconfiguration": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "auto_gptq/quantization/config.py",
+      "line": 62,
+      "cwe": "CWE-1188",
+      "snippet": "desc_act: bool = field(default=True)"
+     }
+    ]
+   },
+   "A06-VulnerableComponents": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "setup.py",
+      "line": 141,
+      "cwe": "CWE-1104",
+      "snippet": "\"triton\": [\"triton==2.0.0\"],"
+     }
+    ]
+   },
+   "A07-AuthFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A08-SoftwareDataIntegrity": {
+    "count": 3,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "auto_gptq/nn_modules/qlinear/qlinear_marlin.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#         http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "autogptq_extension/marlin/marlin_cuda.cpp",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "*         http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "autogptq_extension/marlin/marlin_cuda_kernel.cu",
+      "line": 8,
+      "cwe": "CWE-319",
+      "snippet": "*         http://www.apache.org/licenses/LICENSE-2.0"
+     }
+    ]
+   },
+   "A09-LoggingMonitoringFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A10-SSRF": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "owasp_llm_top10": {
+  "total_findings": 23,
+  "files_with_findings": 23,
+  "severity": {
+   "high": 0,
+   "medium": 23,
+   "low": 0
+  },
+  "categories": {
+   "LLM01-PromptInjection": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM02-SensitiveInfoDisclosure": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM03-SupplyChain": {
+    "count": 23,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "tests/test_awq_compatibility_generation.py",
+      "line": 42,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(quant_path)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_peft_conversion.py",
+      "line": 73,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_q4.py",
+      "line": 1143,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(model_id)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_quantization.py",
+      "line": 18,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(pretrained_model_dir, use_fast=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_sharded_loading.py",
+      "line": 13,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_triton.py",
+      "line": 56,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "examples/quantization/basic_usage.py",
+      "line": 11,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(pretrained_model_dir, use_fast=True)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/quantization/basic_usage_gpt_xl.py",
+      "line": 42,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(pretrained_model_dir, use_fast=False)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/quantization/basic_usage_wikitext2.py",
+      "line": 22,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(model, use_fast=False)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/quantization/quant_with_alpaca.py",
+      "line": 138,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "examples/peft/peft_adalora_clm_instruction_tuning.py",
+      "line": 56,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, use_fast=args.use_fast_tokenizer)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/peft/peft_adaption_prompt_clm_instruction_tuning.py",
+      "line": 50,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, use_fast=args.use_fast_tokenizer)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/peft/peft_lora_clm_instruction_tuning.py",
+      "line": 50,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, use_fast=args.use_fast_tokenizer)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/evaluation/run_language_modeling_task.py",
+      "line": 48,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(args.base_model_dir)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/evaluation/run_sequence_classification_task.py",
+      "line": 46,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(args.base_model_dir)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/evaluation/run_text_summarization_task.py",
+      "line": 45,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(args.base_model_dir)"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/benchmark/generation_speed.py",
+      "line": 154,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "examples/benchmark/perplexity.py",
+      "line": 65,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(args.model_name, use_fast=args.use_fast_tokenizer)"
+     },
+     {
+      "severity": "medium",
+      "file": "auto_gptq/utils/peft_utils.py",
+      "line": 415,
+      "cwe": "CWE-494",
+      "snippet": "peft_model = PeftModel.from_pretrained(model.model, model_id, adapter_name)"
+     },
+     {
+      "severity": "medium",
+      "file": "auto_gptq/quantization/config.py",
+      "line": 165,
+      "cwe": "CWE-494",
+      "snippet": "def from_pretrained(cls, save_dir: str, **kwargs):"
+     },
+     {
+      "severity": "medium",
+      "file": "auto_gptq/modeling/auto.py",
+      "line": 78,
+      "cwe": "CWE-494",
+      "snippet": "def from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "auto_gptq/modeling/_base.py",
+      "line": 591,
+      "cwe": "CWE-494",
+      "snippet": "def from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "auto_gptq/modeling/_utils.py",
+      "line": 334,
+      "cwe": "CWE-494",
+      "snippet": "config = AutoConfig.from_pretrained(model_dir, trust_remote_code=trust_remote_code)"
+     }
+    ]
+   },
+   "LLM04-DataPoisoning": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM05-ImproperOutputHandling": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM06-ExcessiveAgency": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM07-SystemPromptLeak": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM08-VectorEmbeddingWeaknesses": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM09-Misinformation": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM10-UnboundedConsumption": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "sbom": {
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:46f9f866-f3b1-5580-8328-36c600cb5d34",
+  "version": 1,
+  "metadata": {
+   "timestamp": "2026-10-06T10:07:52Z",
+   "component": {
+    "type": "application",
+    "name": "AUTOGPTQ",
+    "version": "83b357604d34",
+    "bom-ref": "pkg:generic/anticloud/AUTOGPTQ@83b357604d34",
+    "purl": "pkg:generic/anticloud/AUTOGPTQ@83b357604d34",
+    "licenses": [
+     {
+      "license": {
+       "id": "MIT"
+      }
+     }
+    ]
+   },
+   "properties": [
+    {
+     "name": "anticloud:source-commit",
+     "value": "REMOVED_CONTAMINATED_SHA_PENDING_API_RESOLVE"
+    },
+    {
+     "name": "anticloud:source-url",
+     "value": "https://github.com/the-anticloud/OPENMRS_CORE.git"
+    },
+    {
+     "name": "anticloud:tier",
+     "value": "tier-agent"
+    }
+   ]
+  },
+  "components": [
+   {
+    "type": "library",
+    "name": "accelerate",
+    "version": ">=0.26.0",
+    "purl": "pkg:pypi/accelerate@0.26.0",
+    "bom-ref": "pypi/accelerate@>=0.26.0"
+   },
+   {
+    "type": "library",
+    "name": "torch",
+    "version": ">=1.13.0",
+    "purl": "pkg:pypi/torch@1.13.0",
+    "bom-ref": "pypi/torch@>=1.13.0"
+   },
+   {
+    "type": "library",
+    "name": "transformers",
+    "version": ">=4.31.0",
+    "purl": "pkg:pypi/transformers@4.31.0",
+    "bom-ref": "pypi/transformers@>=4.31.0"
+   },
+   {
+    "type": "library",
+    "name": "peft",
+    "version": ">=0.5.0",
+    "purl": "pkg:pypi/peft@0.5.0",
+    "bom-ref": "pypi/peft@>=0.5.0"
+   },
+   {
+    "type": "library",
+    "name": "triton",
+    "version": "==2.0.0",
+    "purl": "pkg:pypi/triton@2.0.0",
+    "bom-ref": "pypi/triton@==2.0.0"
+   },
+   {
+    "type": "library",
+    "name": "ruff",
+    "version": "==0.1.5",
+    "purl": "pkg:pypi/ruff@0.1.5",
+    "bom-ref": "pypi/ruff@==0.1.5"
+   },
+   {
+    "type": "library",
+    "name": "-march",
+    "version": "=native",
+    "purl": "pkg:pypi/-march@native",
+    "bom-ref": "pypi/-march@=native"
+   },
+   {
+    "type": "library",
+    "name": "-std",
+    "version": "=c++17",
+    "purl": "pkg:pypi/-std@c++17",
+    "bom-ref": "pypi/-std@=c++17"
+   }
+  ]
+ },
+ "elapsed_seconds": 11.2
+}

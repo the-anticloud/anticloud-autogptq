@@ -1,0 +1,103 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.5",
+ "serialNumber": "urn:uuid:46f9f866-f3b1-5580-8328-36c600cb5d34",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-10-06T10:07:52Z",
+  "component": {
+   "type": "application",
+   "name": "AUTOGPTQ",
+   "version": "83b357604d34",
+   "bom-ref": "pkg:generic/anticloud/AUTOGPTQ@83b357604d34",
+   "purl": "pkg:generic/anticloud/AUTOGPTQ@83b357604d34",
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT"
+     }
+    }
+   ]
+  },
+  "properties": [
+   {
+    "name": "anticloud:source-commit",
+    "value": "REMOVED_CONTAMINATED_SHA_PENDING_API_RESOLVE"
+   },
+   {
+    "name": "anticloud:source-url",
+    "value": "https://github.com/the-anticloud/OPENMRS_CORE.git"
+   },
+   {
+    "name": "anticloud:tier",
+    "value": "tier-agent"
+   }
+  ]
+ },
+ "components": [
+  {
+   "type": "library",
+   "name": "accelerate",
+   "version": ">=0.26.0",
+   "purl": "pkg:pypi/accelerate@0.26.0",
+   "bom-ref": "pypi/accelerate@>=0.26.0"
+  },
+  {
+   "type": "library",
+   "name": "torch",
+   "version": ">=1.13.0",
+   "purl": "pkg:pypi/torch@1.13.0",
+   "bom-ref": "pypi/torch@>=1.13.0"
+  },
+  {
+   "type": "library",
+   "name": "transformers",
+   "version": ">=4.31.0",
+   "purl": "pkg:pypi/transformers@4.31.0",
+   "bom-ref": "pypi/transformers@>=4.31.0"
+  },
+  {
+   "type": "library",
+   "name": "peft",
+   "version": ">=0.5.0",
+   "purl": "pkg:pypi/peft@0.5.0",
+   "bom-ref": "pypi/peft@>=0.5.0"
+  },
+  {
+   "type": "library",
+   "name": "triton",
+   "version": "==2.0.0",
+   "purl": "pkg:pypi/triton@2.0.0",
+   "bom-ref": "pypi/triton@==2.0.0"
+  },
+  {
+   "type": "library",
+   "name": "ruff",
+   "version": "==0.1.5",
+   "purl": "pkg:pypi/ruff@0.1.5",
+   "bom-ref": "pypi/ruff@==0.1.5"
+  },
+  {
+   "type": "library",
+   "name": "-march",
+   "version": "=native",
+   "purl": "pkg:pypi/-march@native",
+   "bom-ref": "pypi/-march@=native"
+  },
+  {
+   "type": "library",
+   "name": "-std",
+   "version": "=c++17",
+   "purl": "pkg:pypi/-std@c++17",
+   "bom-ref": "pypi/-std@=c++17"
+  }
+ ],
+ "source": {
+  "git": {
+   "head": null,
+   "url": null,
+   "sha_unverified": true,
+   "note": "contamination removed; resolve via GitHub API before quoting"
+  }
+ }
+}
